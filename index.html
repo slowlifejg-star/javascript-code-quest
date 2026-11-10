@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript Code Quest</title>
+  <meta name="description" content="เกมฝึกเขียน JavaScript สำหรับผู้เริ่มต้น 10 ด่าน">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon" aria-hidden="true">{ }</span>
+      <div>
+        <h1>JavaScript Code Quest</h1>
+        <p class="subtitle">ภารกิจฝึกตัวดำเนินการ JavaScript</p>
+      </div>
+    </div>
+    <div class="stats" aria-live="polite">
+      <div class="xp-badge"><span class="xp-label">XP</span> <strong id="xpValue">0</strong><span class="xp-max">/100</span></div>
+      <div class="progress-wrap">
+        <div class="progress-text"><span id="progressText">ผ่านแล้ว 0/10 ด่าน</span><span id="progressPct">0%</span></div>
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card challenge" aria-labelledby="levelTitle">
+      <div class="challenge-head">
+        <span class="chip" id="levelChip">ด่าน 1</span>
+        <span class="chip chip-topic" id="topicChip">Arithmetic</span>
+        <span class="chip chip-xp" id="xpChip">+10 XP</span>
+        <span class="chip chip-done hidden" id="doneChip">✓ ผ่านแล้ว</span>
+      </div>
+      <h2 id="levelTitle">กำลังโหลด…</h2>
+      <p class="statement" id="statement"></p>
+
+      <div class="expected">
+        <h3>ผลลัพธ์ที่ต้องการ</h3>
+        <p id="expectedText"></p>
+      </div>
+
+      <div class="editor-head">
+        <h3>โค้ด</h3>
+        <span class="editor-legend"><span class="legend-box"></span> เติมโค้ดในช่องสีม่วงเท่านั้น</span>
+      </div>
+      <div class="editor" id="editor" aria-label="ตัวแก้ไขโค้ด"></div>
+
+      <div class="actions">
+        <button class="btn btn-run" id="runBtn" type="button">▶ รันโค้ด</button>
+        <button class="btn btn-check" id="checkBtn" type="button">✓ ตรวจคำตอบ</button>
+        <button class="btn btn-hint" id="hintBtn" type="button">💡 คำใบ้</button>
+        <button class="btn btn-next" id="nextBtn" type="button" disabled>ด่านถัดไป →</button>
+      </div>
+
+      <div class="hint-box hidden" id="hintBox" role="note"></div>
+
+      <div class="console">
+        <div class="console-head"><span>ผลลัพธ์ (Console)</span><button class="link-btn" id="resetRunnerBtn" type="button" title="รีเซ็ตตัวรันโค้ดหากค้าง">รีเซ็ตตัวรัน</button></div>
+        <pre id="consoleOut" aria-live="polite">กด "รันโค้ด" เพื่อดูผลลัพธ์</pre>
+      </div>
+
+      <div class="feedback hidden" id="feedback" aria-live="polite"></div>
+    </section>
+
+    <aside class="card levels" aria-label="เลือกด่าน">
+      <h3>เลือกด่าน</h3>
+      <ol class="level-list" id="levelList"></ol>
+      <button class="link-btn reset-progress" id="resetProgressBtn" type="button">ล้างความคืบหน้าทั้งหมด</button>
+      <p class="note">คะแนนนี้ใช้เพื่อการฝึกฝนเท่านั้น ไม่ใช่การสอบที่ปลอดภัย</p>
+    </aside>
+  </main>
+
+  <div class="toast hidden" id="toast" role="status"></div>
+
+  <script src="challenges.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
